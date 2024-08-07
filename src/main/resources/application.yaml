@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: gfinternal
+  datasource:
+    url: jdbc:mysql://localhost:3306/gfcapital
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+application:
+  security:
+    jwt:
+      secret-key: 8e7d7c493b3e65910a95c8af048f36e6ad5f8df708cde712c263d8ab57c1b5b1
+      access-token-expiration: 604800000
+      refresh-token-expiration: 604800000
+cloudflare:
+  api:
+    url: https://api.cloudflare.com/client/v4/accounts/32371f46439b2718f167b308d7a14632/images/v1
+  token: tV73dOkChz2vFCa_L7wtMPSL9W_F6xBZrIGJ4DKd
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+server:
+  port: 8080
