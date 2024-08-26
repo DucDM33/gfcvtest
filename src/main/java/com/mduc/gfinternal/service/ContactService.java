@@ -30,4 +30,10 @@ public class ContactService {
             return contactRepository.findByNameContainingAndContact(name, contact, pageable);
         }
     }
+    public Contact updateContactStatus(Integer id) {
+        Contact contact = contactRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Contact not found with id: " + id));
+        contact.setContact(true);
+        return contactRepository.save(contact);
+    }
 }

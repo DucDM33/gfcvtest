@@ -34,4 +34,9 @@ public class ContactController {
 
         return ResponseEntity.ok(contacts);
     }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Contact> updateContactStatus(@PathVariable Integer id) {
+        Contact updatedContact = contactService.updateContactStatus(id);
+        return ResponseEntity.ok(updatedContact);
+    }
 }

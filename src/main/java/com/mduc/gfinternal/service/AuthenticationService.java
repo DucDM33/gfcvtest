@@ -86,18 +86,7 @@ public class AuthenticationService {
 
     }
 
-    private void revokeTokensExceptCurrentDevice(User user, String deviceId) {
-        List<Token> validTokens = tokenRepository.findAllAccessTokensByUser(user.getId());
-        if (validTokens.isEmpty()) {
-            return;
-        }
-        validTokens.forEach(t -> {
-            if (!t.getDeviceId().equals(deviceId)) {
-                t.setLoggedOut(true);
-            }
-        });
-        tokenRepository.saveAll(validTokens);
-    }
+
 
     private void revokeAllTokenByUser(User user) {
         List<Token> validTokens = tokenRepository.findAllAccessTokensByUser(user.getId());

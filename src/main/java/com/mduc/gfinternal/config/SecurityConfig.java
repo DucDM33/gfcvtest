@@ -35,7 +35,7 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
-                        req->req.requestMatchers("/api/job/**","/api/contact/**","/api/employee/**","/api/bill/**","/api/login","/api/register","/api/product/search","/api/product/get/{productId}","api/rating/product/{productId}")
+                        req->req.requestMatchers("/api/post/**","/api/cv/**","/api/files/**","/api/job/**","/api/contact/**","/api/employee/**","/api/bill/**","/api/login","/api/register","/api/product/search","/api/product/get/{productId}","api/rating/product/{productId}")
                                 .permitAll()
                                 .requestMatchers("/api/user/delete/{id}","/api/user/change-user-password","/api/user/search","/api/product/add","/api/product/update/{productId}","/api/product/delete/{productid}","/api/checkout/orders/search","/api/checkout/update-status/{orderId}")
                                 .hasAuthority("ADMIN")

@@ -16,11 +16,6 @@ public class Token {
 
     @Column(name = "refresh_token")
     private String refreshToken;
-
-    @Getter
-    @Setter
-    @Column(name = "device_id")
-    private String deviceId;
     @Column(name = "is_logged_out")
     private boolean loggedOut;
     @ManyToOne

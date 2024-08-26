@@ -9,5 +9,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface ContactRepository extends JpaRepository<Contact, Integer> {
     Page<Contact> findByNameContaining(String name, Pageable pageable);
-    Page<Contact> findByNameContainingAndContact(String name, Boolean contact, Pageable pageable);
+    @Query("SELECT c FROM Contact c WHERE c.name LIKE %:name% AND (:contact IS NULL OR c.contact = :contact)")
+    Page<Contact> findByNameContainingAndContact(@Param("name") String name, @Param("contact") Boolean contact, Pageable pageable);
 }
